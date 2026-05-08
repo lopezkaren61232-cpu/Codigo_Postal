@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="5"> <!-- Se actualiza solo cada 5 seg -->
+    <title>Formulario Código Postal</title>
+</head>
+<body>
+
+    <h2>📍 Ingresar Código Postal</h2>
+
+    <form>
+        <label for="cp">Código Postal:</label>
+        <input type="text" 
+               id="cp" 
+               name="cp" 
+               pattern="[0-9]{5}" 
+               title="Debe escribir exactamente 5 números" 
+               maxlength="5" 
+               required>
+        
+        <br><br>
+
+        <button type="button" onclick="verificarCP()">Verificar</button>
+    </form>
+
+    <hr>
+
+    <div id="resultado"></div>
+
+
+    <script>
+        function verificarCP() {
+            let cp = document.getElementById("cp").value;
+
+            // Validar que sean exactamente 5 números
+            if(/^[0-9]{5}$/.test(cp)) {
+                document.getElementById("resultado").innerHTML = 
+                "<p style='color:green;'>✅ Código Postal válido: " + cp + "</p>";
+            } else {
+                document.getElementById("resultado").innerHTML = 
+                "<p style='color:red;'>❌ Error: Deben ser exactamente 5 números.</p>";
+            }
+        }
+    </script>
+
+</body>
+</html>
